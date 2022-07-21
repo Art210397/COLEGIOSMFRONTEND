@@ -1,0 +1,131 @@
+<ng-template #modal let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Alumnos</h4>
+      <button type="button" class="modal-close" aria-label="Close" id="closeUsers"
+          (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true"><i class="ti-close"></i></span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <table class="table user-data">
+          <thead>
+              <tr>
+                  <th>Codigo</th>
+                  <th>Imagen</th>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+              </tr>
+          </thead>
+          <tbody *ngIf="alumnos">
+              <tr *ngFor="let c of alumnos">
+                  <td>{{ c.codigo }}</td>
+                  <td class="imagen-table"><img width="25%" src="data:image/jpeg;base64,{{ c.imagen }}" alt=""></td>
+                  <td>{{ c.nombres }}</td>
+                  <td>{{ c.apellidos }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="mt-4">
+          <button class="btn-assign w-100" (click)="modal.dismiss('Cross click')">Cerrar</button>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #modal2 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Apoderados</h4>
+      <button type="button" class="modal-close" aria-label="Close" id="closeUsers"
+          (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true"><i class="ti-close"></i></span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <table class="table user-data">
+          <thead>
+              <tr>
+                  <th>IDApoderado</th>
+                  <th>Tipo-Relacion</th>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+              </tr>
+          </thead>
+          <tbody *ngIf="apoderados">
+              <tr *ngFor="let c of apoderados">
+                  <td>{{ c.idapoderado }}</td>
+                  <td>{{ c.tipoRelacion }}</td>
+                  <td>{{ c.nombres }}</td>
+                  <td>{{ c.apellidos }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="mt-4">
+          <button class="btn-assign w-100" (click)="modal.dismiss('Cross click')">Cerrar</button>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #modal3 let-modal>
+  <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Apoderados</h4>
+      <button type="button" class="modal-close" aria-label="Close" id="closeUsers"
+          (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true"><i class="ti-close"></i></span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <table class="table user-data">
+          <thead>
+              <tr>
+                  <th>IDMatricula</th>
+                  <th>Codigo</th>
+                  <th>IDApoderado</th>
+                  <th>IDAlumno</th>
+                  <th>IEProcedencia</th>
+              </tr>
+          </thead>
+          <tbody *ngIf="matriculas">
+              <tr *ngFor="let c of matriculas">
+
+                  <td>{{ c.idmatricula }}</td>
+                  <td>{{ c.codigo }}</td>
+                  <td>{{ c.idapoderado }}</td>
+                  <td>{{ c.idalumno }}</td>
+                  <td>{{ c.ieprocedencia }}</td>
+
+              </tr>
+          </tbody>
+      </table>
+      <div class="mt-4">
+          <button class="btn-assign w-100" (click)="modal.dismiss('Cross click')">Cerrar</button>
+      </div>
+  </div>
+</ng-template>
+
+  <div class="container">
+    <div class="mb-5">
+      <img style="width: 100%;" src="https://scontent.fpiu2-1.fna.fbcdn.net/v/t1.15752-9/292615808_444157647341304_8016690951604032207_n.png?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeFooGfIqdbGCfYaKz9N3zDkJtE0eNE04ckm0TR40TThyeq3BQ5-xSaIFE3zYiAImcoD-rPzqQLZcoWSVh-e0o_M&_nc_ohc=aVnOSSezPPAAX_zJX2f&_nc_ht=scontent.fpiu2-1.fna&oh=03_AVI_VHZ-9KHIi8a02_2SRWZ1ZrQiIKJbDhkVBi0Bm7_u_Q&oe=62FC97ED" alt="">
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-4">
+          <div class="data-stats mr-4" (click)="mostrarAlumnos(modal)">
+            <span class="stats-icon"><i class="fas fa-user"></i></span>
+            <span class="stats-title">Alumnos Registrados</span>
+            <span class="stats-number">{{ totalalumnos }}</span>
+        </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="data-stats mr-4" (click)="mostrarApoderados(modal2)">
+            <span class="stats-icon"><i class="fas fa-user"></i></span>
+            <span class="stats-title">Apoderados Registrados</span>
+            <span class="stats-number">{{ totalapoderados.length }}</span>
+        </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="data-stats mr-4" (click)="mostrarMatriculas(modal3)">
+            <span class="stats-icon"><i class="fa-solid fa-comment-dollar"></i></span>
+            <span class="stats-title">Matriculas Registradas</span>
+            <span class="stats-number">{{ totalmatriculas.length }}</span>
+        </div>
+        </div>
+    </div>
+</div>

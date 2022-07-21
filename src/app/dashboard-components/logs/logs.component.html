@@ -1,0 +1,62 @@
+
+
+<div class="container">
+  <div class="mt-5">
+    <button style="color: white; background-color: green;" class="btn-custom" (click)="descargarReporte()"><i class="fas fa-file-excel fa-lg"></i> Descargar-Reporte</button>
+    <table class="table user-data">
+        <thead>
+            <th>URL</th>
+            <th>REQUEST</th>
+            <th>DATE</th>
+            <th>EXCEPTION</th>
+            <th>METHOD</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of logs">
+                <td>{{ d.url }}</td>
+                <td>{{ d.request }}</td>
+                <td>{{ d.date }}</td>
+                <td>{{ d.exception }}</td>
+                <td>{{ d.method }}</td>
+                <td>
+                    <!-- <button class="btn-actions" (click)="edit(modal, d)"><i class="fas fa-pen"></i></button> -->
+                    <button class="btn-actions delete" (click)="deletes(d)"><i
+                            class="fas fa-trash-alt"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

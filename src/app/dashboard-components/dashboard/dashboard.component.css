@@ -1,0 +1,30 @@
+
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #ffff;
+  }
+
+  .lista-opciones{
+    width: 100%;
+  }
+
+  .lista-opciones li{
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #302f5b;
+    transition: 0.3s;
+  }
+
+  .lista-opciones li:hover{
+    background-color:#302f5b;
+    color: white;
+  }
+
+  .svg-inline--fa {
+    margin-right: 15px;
+
+    margin-left: 25px;
+  }

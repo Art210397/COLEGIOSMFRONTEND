@@ -1,0 +1,115 @@
+
+<div class="container">
+  <ng-template #modal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{ mtitle }}</h4>
+        <button type="button" class="modal-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true"><i class="ti-close"></i></span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form action="" id="arturo" [formGroup]="form" (submit)="submit()" autocomplete="off">
+          <div class="form-group">
+            <label for="">Imagen</label>
+            <input type="file" name="imagen" (change)="cambiarImagen($event)" class="input">
+        </div>
+        <div>
+          <mat-form-field class="select w-100" appearance="fill">
+            <mat-label>IDApoderado</mat-label>
+          <mat-select formControlName="idapoderado" >
+                <mat-option class="text-dark" *ngFor="let dt of dataapoderado" [value]="dt.idapoderado">
+                  {{ dt.idapoderado }} - {{ dt.nombres }} - {{ dt.apellidos }} - {{ dt.tipoRelacion }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+          <!-- <select name="" id="" *ngIf="dataapoderado">
+            <option value="" *ngFor="let apoderado of dataapoderado">{{ apoderado.nombres }}</option>
+          </select> -->
+            <div class="form-group">
+                <label for="">Codigo</label>
+                <input type="text" name="codigo" formControlName="codigo" class="input">
+            </div>
+            <div class="form-group">
+                <label for="">Nombres</label>
+                <input type="text" name="discount" formControlName="nombres" class="input">
+            </div>
+            <div class="form-group">
+                <label for="">Apellidos</label>
+                <input type="text" name="total" formControlName="apellidos" class="input">
+            </div>
+            <div class="form-group">
+                <label for="">Direccion</label>
+                <input type="text" name="status" formControlName="direccion" class="input">
+            </div>
+            <div class="form-group">
+              <label for="">Ciudad</label>
+              <input type="text" name="status" formControlName="ciudad" class="input">
+          </div>
+            <div class="form-group">
+              <label for="">Sexo</label>
+              <input type="text" name="status" formControlName="sexo" class="input">
+            </div>
+            <div class="form-group">
+              <label for="">DNI</label>
+              <input type="number" name="status" formControlName="dni" class="input">
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn-submit">Save</button>
+                <!--<button type="button" class="btn btn-outline-dark w-100" (click)="modal.close('Save click')">Cancelar</button>-->
+            </div>
+        </form>
+    </div>
+</ng-template>
+</div>
+
+
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-2">
+        <button class="btn-custom" (click)="create(modal)"><i class="ti-plus"></i> New</button>
+      </div>
+      <div class="col-2 mb-3">
+        <button style="color: white; background-color: green;" class="btn-custom" (click)="descargarReporte()"><i class="fas fa-file-excel fa-lg"></i> Descargar-Reporte</button>
+      </div>
+    </div>
+      <table class="table user-data">
+          <thead>
+              <th>Imagen</th>
+              <th>IDApoderado</th>
+              <th>Codigo</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Direccion</th>
+              <th>Ciudad</th>
+              <th>Sexo</th>
+              <th>DNI</th>
+              <th>Actions</th>
+          </thead>
+          <tbody>
+              <tr *ngFor="let d of alumnos">
+                  <td class="imagen-table"><img width="100%" src="data:image/jpeg;base64,{{ d.imagen }}" alt=""></td>
+                  <td>{{ d.idapoderado }}</td>
+                  <td>{{ d.codigo }}</td>
+                  <td>{{ d.nombres }}</td>
+                  <td>{{ d.apellidos }}</td>
+                  <td>{{ d.direccion }}</td>
+                  <td>{{ d.ciudad }}</td>
+                  <td>{{ d.sexo }}</td>
+                  <td>{{ d.dni }}</td>
+                  <td>
+                      <button class="btn-actions" (click)="edit(modal, d)"><i class="fas fa-pen"></i></button>
+                      <button class="btn-actions delete" (click)="deletes(d)"><i
+                              class="fas fa-trash-alt"></i></button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+
+
+
+
+
+

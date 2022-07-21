@@ -1,0 +1,60 @@
+<mat-drawer-container [hasBackdrop]="true" style="height: 100vh;">
+  <mat-drawer class="sidebar" #drawer [mode]="'over'">
+      <div class="container">
+          <img src="https://scontent.fpiu2-1.fna.fbcdn.net/v/t1.15752-9/293976028_4736411686459949_5510435020224416618_n.png?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeHUlBCasaGWCNWWARvIs65FTa22hA91Bd5NrbaED3UF3rtAaBJr50GxRqDOw4IUXKmh0PiShY_sSxK5iNLqhBWm&_nc_ohc=QItIy4o6qCIAX8nFowy&tn=MHh91FXxAqBb61Pc&_nc_ht=scontent.fpiu2-1.fna&oh=03_AVJDJErOe-br5N7ZntZjftIJypShXpGNKaAsuLjgPrWsMQ&oe=62FAC591" class="w-100" alt="">
+      </div>
+      <ul class="list-unstyled lista-opciones">
+          <li [routerLink]="['home']">
+              <i class="fa fa-home"></i>Home
+          </li>
+          <li [routerLink]="['alumno']">
+              <i class="fa fa-users icon"></i>Alumnos
+          </li>
+          <li [routerLink]="['apoderado']">
+            <i class="fa fa-users icon"></i>Apoderados
+          </li>
+          <li [routerLink]="['matricula']">
+              <i class="fa fa-list-alt icon"></i>Matricula
+          </li>
+          <li [routerLink]="['logs']">
+            <i class="fa fa-random" aria-hidden="true"></i>Gestion-Errores
+          </li>
+          <!-- <li [routerLink]="['brands']">
+              <i class="fa fa-check-square icon"></i>Marcas
+          </li>
+          <li [routerLink]="['products']">
+              <i class="fa fa-cart-plus icon"></i>Productos
+          </li>
+          <li [routerLink]="['categories']">
+              <i class="fa fa-list-alt icon"></i>Categorias
+          </li>
+          <li [routerLink]="['transaction']">
+              <i class="fa fa-chart-area icon"></i>Transacciones
+          </li> -->
+      </ul>
+  </mat-drawer>
+  <!--NAV-->
+  <mat-toolbar style="background-color: #302f5b; color: white;">
+      <div class="container">
+          <div class="d-flex align-items-center">
+              <button mat-icon-button (click)="drawer.toggle()">
+                  <mat-icon>menu</mat-icon>
+              </button>
+              <span>Admin</span>
+              <div class="ml-auto">
+                  <button mat-icon-button class="example-icon favorite-icon"
+                      aria-label="Example icon-button with heart icon">
+                      <mat-icon>favorite</mat-icon>
+                  </button>
+                  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                      <mat-icon>share</mat-icon>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </mat-toolbar>
+  <!-- CONTENIDO -->
+  <div class="container">
+      <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
